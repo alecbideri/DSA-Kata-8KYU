@@ -1,7 +1,12 @@
-var names = ["Alec" , "Bideri"];
+var rainbow = ["Red", "Orange", "Blackberry", "Blue"];
 
-names.push("kelia");
+rainbow.splice(2 ,2 ,"Yellow");
 
-names.pop()
+const replace = ["Green" , "Blue" , "Violet"];
 
-console.log(names);
+for (let rainbows of replace){
+  rainbow.push(rainbows); 
+}
+
+console.log(rainbow);
+
