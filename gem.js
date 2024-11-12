@@ -1,12 +1,37 @@
-function stairsIn20(stairs) {
-    let totalSum = 0;
-  
-    for (let day of stairs) {
-      let daySum = day.reduce((acc, num) => acc + num, 0);
-      totalSum += daySum;
+// Solution 1: Using a simple for loop
+function switchLetters(dna) {
+    let newEl = "";
+    
+    for (let i = 0; i < dna.length; i++) {
+        if (dna[i] === "T") {
+            newEl += "U";
+        } else if (dna[i] === "U") {
+            newEl += "T";
+        } else {
+            newEl += dna[i];
+        }
     }
-  
-    return totalSum * 20;
-  }
+    
+    return newEl;
+}
 
-  console.log(stairsIn20([6737, 7244, 5776, 9826, 7057, 9247, 5842, 5484, 6543, 5153, 6832, 8274, 7148, 6152, 5940, 8040, 9174, 7555, 7682, 5252, 8793, 8837, 7320, 8478, 6063, 5751, 9716, 5085, 7315, 7859, 6628, 5425, 6331, 7097, 6249, 8381, 5936, 8496, 6934, 8347, 7036, 6421, 6510, 5821, 8602, 5312, 7836, 8032, 9871, 5990, 6309, 7825]))
+// // Solution 2: Using replace() with regular expressions
+// function switchLetters(dna) {
+//     return dna.replace(/T/g, 'X')  // Temporarily replace T with X
+//               .replace(/U/g, 'T')   // Replace U with T
+//               .replace(/X/g, 'U');  // Replace temporary X with U
+// }
+
+// // Solution 3: Using map()
+// function switchLetters(dna) {
+//     return dna.split('')
+//               .map(letter => {
+//                   if (letter === 'T') return 'U';
+//                   if (letter === 'U') return 'T';
+//                   return letter;
+//               })
+//               .join('');
+// }
+
+console.log(switchLetters('GCAT')); // Outputs: 'GCAU'
+console.log(switchLetters('GCAU')); // Outputs: 'GCAT'
