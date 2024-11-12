@@ -1,37 +1,28 @@
-// Solution 1: Using a simple for loop
-function switchLetters(dna) {
-    let newEl = "";
-    
-    for (let i = 0; i < dna.length; i++) {
-        if (dna[i] === "T") {
-            newEl += "U";
-        } else if (dna[i] === "U") {
-            newEl += "T";
-        } else {
-            newEl += dna[i];
-        }
+function sumArray(array) {
+    if (array === null || array.length < 2) {
+      return 0;
     }
-    
-    return newEl;
-}
+  
+    const min = Math.min(...array);
+    const max = Math.max(...array);
+    let sum = 0;
+    let minRemoved = false;
+    let maxRemoved = false;
+  
+    for (let i = 0; i < array.length; i++) {
+      if ((!minRemoved && array[i] === min) || (!maxRemoved && array[i] === max)) {
+        if (!minRemoved && array[i] === min) {
+          minRemoved = true;
+        } else if (!maxRemoved && array[i] === max) {
+          maxRemoved = true;
+        }
+        continue; // Skip to the next iteration
+      }
+  
+      sum += array[i];
+    }
+  
+    return sum;
+  }
 
-// // Solution 2: Using replace() with regular expressions
-// function switchLetters(dna) {
-//     return dna.replace(/T/g, 'X')  // Temporarily replace T with X
-//               .replace(/U/g, 'T')   // Replace U with T
-//               .replace(/X/g, 'U');  // Replace temporary X with U
-// }
-
-// // Solution 3: Using map()
-// function switchLetters(dna) {
-//     return dna.split('')
-//               .map(letter => {
-//                   if (letter === 'T') return 'U';
-//                   if (letter === 'U') return 'T';
-//                   return letter;
-//               })
-//               .join('');
-// }
-
-console.log(switchLetters('GCAT')); // Outputs: 'GCAU'
-console.log(switchLetters('GCAU')); // Outputs: 'GCAT'
+  console.log(sumArray([1,1,11,2,3]));
