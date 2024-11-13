@@ -13,4 +13,4 @@ function firstNonRepeatingLetter(s) {
   }
 
 
-  console.log(firstNonRepeatingLetter("aaaabbbbbbb"));
+  console.log(firstNonRepeatingLetter("table"));
